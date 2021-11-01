@@ -1,0 +1,287 @@
+/* Universal Styles */
+html {
+    font-family: 'Pragati Narrow', sans-serif;
+    font-size: 16px;
+    color: #F4F4F4;
+    height: 100%;
+    width: 100%;
+    background-color: hsl(89, 80%, 12%, .9);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+}
+
+/* Grid Container */
+.container {
+    display: grid;
+    grid-template-rows: 60px 300px 250px 150px 180px 150px 50px; /* 7 rows */
+    grid-template-columns: 1, 1fr;
+    grid-template-areas:
+        "nav"
+        "header"
+        "santa"
+        "title-1"
+        "countdown"
+        "title-2"
+        "footer";
+}
+
+/* Nav Bar Img */
+
+nav {
+    grid-area: nav;
+    display: flex;
+    justify-content: space-around;
+    background-color: hsl(89, 80%, 5%, 1);
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    padding: 10px;
+    width: 100%;
+}
+
+nav img { /* Img's repeat across Header */
+    height: 40px;
+    padding-right: 20px;
+}
+
+nav img:hover, nav img:active {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 3s;
+  
+/* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+}
+
+/* Header Text */
+
+header {
+    grid-area: header;
+    margin: auto;
+    padding-top: 60px; /* Add space between nav bar and H1 title */
+    text-align: center;
+    line-height: 1;
+}
+
+header .bear {
+    margin: auto;
+    height: 50px;
+}
+
+header span {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 2rem;
+    font-style: italic;
+}
+
+header h1 {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 7rem;
+    overflow-y: hidden;
+}
+
+/* Santa Img - with Shake on Hover */
+
+.santa {
+    grid-area: santa;
+    margin: auto;
+}
+
+.santa img {
+    height: 220px;
+}
+
+.santa img:hover, .santa img:active {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 3s;
+  
+/* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Countdown - Title 1 */
+
+.title-1 {
+    grid-area: title-1;
+    margin: auto;
+}
+
+.title-1 h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 40px; /* Bring down title, 10px smaller than title-2 */
+}
+
+/* Countdowns - General Styling */
+.countdown-container {
+    grid-area: countdown;
+    background-color: hsl(0, 0%, 90%, 1); 
+    width: 600px;
+    height: 160px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#countdown {
+    font-family: 'Mountains of Christmas', cursive;
+    font-weight: bolder;
+    font-size: 5rem;
+    text-align: center;
+    color: hsl(4, 89%, 35%, 1);
+}
+
+/* Countdown - Title 2 */
+
+.title-2 {
+    grid-area: title-2;
+    margin: auto;
+}
+
+.title-2 h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 50px; /* Bring up title */
+}
+
+/* Footer */
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    align-self: center;
+    width: 100%;
+    font-size: 1.2rem;
+    overflow-y: hidden;
+    background-color:hsl(89, 80%, 5%, 1);
+    bottom: 0;
+    padding: 10px;
+}
+
+footer strong {
+    font-family: 'Amatic SC', cursive;
+}
+
+/* Google fonts included in this doc
+
+font-family: 'Arapey', serif;
+font-family: 'Black And White Picture', sans-serif;
+font-family: 'Pragati Narrow', sans-serif;
+font-family: 'Mountains of Christmas', cursive;
+
+====================================================================
+OPTIMIZE FOR SMALLER SCREENS */
+
+@media only screen and (max-width: 650px) {
+
+    /* Make grid smaller */
+    .container {
+        display: grid;
+        grid-template-rows: 60px 300px 220px 100px 180px 100px 50px; 
+    }
+
+    /* Make countdown smaller */
+    .countdown-container {
+        width: 430px;
+        height: 150px;
+    }
+
+    #countdown {
+        font-size: 3.7rem;
+    }
+}
+
+/*====================================================================
+OPTIMIZE FOR MOBILE */
+
+@media only screen and (max-width: 470px) {
+    
+    /* Make header smaller */
+    header span {
+        font-size: 1.8rem;
+    }
+
+    header h1 {
+        font-size: 5rem;
+    }
+
+    /* Make countdown smaller */
+    .countdown-container {
+        width: 330px;
+        height: 150px;
+    }
+
+    #countdown {
+        font-size: 3rem;
+    }
+
+    footer {
+        margin-top: 50px; /* Add more space between countdown and Footer */
+    }
+}
+
+/*====================================================================
+OPTIMIZE FOR SMALL MOBILE */
+
+@media only screen and (max-width: 320px) {
+    
+    /* Remove nav bar row */
+    .container {
+        display: grid;
+        grid-template-rows: 300px 220px 100px 180px 100px 50px; 
+        grid-template-areas:
+            "header"
+            "santa"
+            "title-1"
+            "countdown"
+            "title-2"
+            "footer";
+    }
+
+    /* Remove nav bar */
+    nav {
+        display: none;
+    }
+
+    header {
+        padding-top: 0px; /* With no nav bar, remove 60px spacing between H2*/
+    }
+
+    /* Make header smaller */
+    header span {
+        font-size: 1.5rem;
+    }
+
+    header h1 {
+        font-size: 4rem;
+    }
+
+    /* Make countdown smaller */
+    .countdown-container {
+        width: 280px;
+        height: 120px;
+    }
+
+    #countdown {
+        font-size: 2.5rem;
+    }
+
+}
